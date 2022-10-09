@@ -1,7 +1,7 @@
-window.onload = () => {
+window.addEventListener('DOMContentLoaded', () => {
   listenButtonClick();
   populateExample();
-};
+});
 
 const backendAPI = 'https://ayaka-apps.shn.hk/graphviz';
 
@@ -41,9 +41,7 @@ const populateExample = () => {
   end [shape=Msquare];
 }`;
   const textarea = document.querySelector('#graphvizCode');
-  console.log(textarea);
   textarea.value = dot;
-  // visualise(encodeURIComponent(dot), 'png', false);
 };
 
 const listenButtonClick = () => {
@@ -66,7 +64,7 @@ const listenButtonClick = () => {
   });
 };
 
-const visualise = async (src, format, scroll = true) => {
+const visualise = async (src, format) => {
   const visualiser = document.querySelector('#visualiser');
   visualiser.innerHTML = '';
 
@@ -76,44 +74,46 @@ const visualise = async (src, format, scroll = true) => {
   }
 
   const url = `${backendAPI}/?src=${src}&format=${format}`;
-  const imageObjectURL = await getViz(url);
 
-  if (imageObjectURL === '') {
+  const viz = new Image();
+  viz.src = url;
+
+  viz.onerror = () => {
     showErrorMessage();
-  } else {
-    if (format === 'pdf') window.open(imageObjectURL);
-    else {
-      visualiser.innerHTML = `<div><img src="${imageObjectURL}" /></div>`;
+  };
 
-      const urlTextArea = document.createElement('textarea');
-      urlTextArea.rows = 1;
-      urlTextArea.wrap = 'off';
-      urlTextArea.value = url;
+  viz.onload = () => {
+    const vizWrapper = document.createElement('div');
+    vizWrapper.appendChild(viz);
+    visualiser.appendChild(vizWrapper);
 
-      const copyBtn = document.createElement('div');
-      copyBtn.classList.add('button');
-      copyBtn.innerText = 'Copy image URL';
-      copyBtn.addEventListener('click', () => {
-        navigator.clipboard.writeText(url);
-        copyBtn.innerText = 'Copied!';
-        setTimeout(() => {
-          copyBtn.innerText = 'Copy image URL';
-        }, 5000);
+    const urlTextArea = document.createElement('textarea');
+    urlTextArea.rows = 1;
+    urlTextArea.wrap = 'off';
+    urlTextArea.value = url;
+
+    const copyBtn = document.createElement('div');
+    copyBtn.classList.add('button');
+    copyBtn.innerText = 'Copy image URL';
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(url);
+      copyBtn.innerText = 'Copied!';
+      setTimeout(() => {
+        copyBtn.innerText = 'Copy image URL';
+      }, 5000);
+    });
+
+    visualiser.append(urlTextArea);
+    visualiser.appendChild(copyBtn);
+
+    window.setTimeout(() => {
+      visualiser.scrollIntoView({
+        block: 'start',
+        inline: 'start',
+        behavior: 'smooth',
       });
-      visualiser.append(urlTextArea);
-      visualiser.appendChild(copyBtn);
-
-      if (scroll) {
-        window.setTimeout(() => {
-          visualiser.scrollIntoView({
-            block: 'start',
-            inline: 'start',
-            behavior: 'smooth',
-          });
-        }, 200);
-      }
-    }
-  }
+    }, 200);
+  };
 };
 
 const showErrorMessage = () => {
