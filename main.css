@@ -1,0 +1,275 @@
+:root {
+  --color-light1: #e3fdfd;
+  --color-light2: #cbf1f5;
+  --color-dark1: #46c0c7;
+  --color-dark3: #71c9ce;
+  --color-dark2: #a6e3e9;
+  --color-black: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Belleza', sans-serif;
+  font-size: 20px;
+  transition: all 150ms ease-in-out;
+
+  /* for firefox browsers */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(113, 201, 206, 1) transparent;
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(113, 201, 206, 1);
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(59, 176, 182);
+}
+
+body {
+  width: 80%;
+  max-width: 1000px;
+  height: 100%;
+  margin: auto;
+  padding: 20px;
+  background-color: var(--color-light1);
+  background-image: url(background.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: var(--color-black);
+}
+
+@media screen and (max-width: 980px) {
+  * {
+    font-size: 16px;
+  }
+
+  body {
+    width: 100%;
+  }
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--color-dark1);
+}
+
+h3 {
+  text-align: center;
+  font-size: 2rem;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+p {
+  line-height: 30px;
+  margin: 20px 0;
+}
+
+a {
+  color: rgb(5, 105, 110);
+}
+
+a:hover {
+  color: #c746c0;
+}
+
+pre {
+  padding: 10px;
+  background: rgba(203, 241, 245, 0.6);
+  border: 1px solid var(--color-dark3);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.input-container label {
+  font-weight: bold;
+}
+
+.input-container textarea {
+  resize: none;
+  font-size: 0.9rem;
+  font-family: monospace;
+  background: rgba(166, 227, 233, 0.3);
+  padding: 10px;
+  border: none;
+
+  width: 100%;
+  max-width: 1000px;
+}
+
+.input-container textarea:focus {
+  outline: 1px solid var(--color-dark1);
+  box-shadow: 0 0 100px 0 rgba(113, 201, 206, 0.6);
+}
+
+.button {
+  border: 2px solid var(--color-dark1);
+  padding: 10px 20px;
+  width: fit-content;
+  cursor: pointer;
+  user-select: none;
+}
+
+.button:hover {
+  background-color: var(--color-dark1);
+  color: white;
+}
+
+.format-button {
+  border: 2px solid var(--color-dark1);
+  padding: 1px 10px;
+  font-size: 0.8rem;
+}
+
+.format-button.active {
+  background-color: var(--color-dark1);
+  color: white;
+}
+
+.graphviz {
+  width: 100%;
+}
+
+.graphviz-bar {
+  width: 100%;
+  height: 24px;
+  background-color: rgba(5, 105, 110, 0.7);
+  position: relative;
+}
+
+/* red dot */
+.graphviz-bar-dots {
+  height: 12px;
+  width: 12px;
+  display: inline-block;
+  background-color: #ff5f57;
+  border-radius: 50%;
+  position: absolute;
+  top: 6px;
+  left: 10px;
+}
+
+/* yellow dot */
+.graphviz-bar-dots::before {
+  content: ' ';
+  height: 12px;
+  width: 12px;
+  display: inline-block;
+  border-radius: 50%;
+  position: absolute;
+  left: 16px;
+  background-color: #ffbd2e;
+  top: 0;
+}
+
+/* green dot */
+.graphviz-bar-dots::after {
+  content: ' ';
+  height: 12px;
+  width: 12px;
+  display: inline-block;
+  border-radius: 50%;
+  position: absolute;
+  left: 32px;
+  background-color: #28ca41;
+  top: 0;
+}
+
+.format-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#visualiser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+#visualiser img {
+  width: 100%;
+}
+
+.error-message {
+  background-color: rgba(245, 207, 203, 0.75);
+  padding: 0px;
+  color: var(--color-black);
+  width: 100%;
+  max-width: 0px;
+  height: 0px;
+  white-space: nowrap;
+  text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.error-message.show {
+  max-width: 400px;
+  padding: 5px 10px;
+  height: fit-content;
+}
+
+.github {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  background-color: var(--color-dark3);
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.github:hover {
+  background-color: var(--color-dark1);
+}
+
+.github img {
+  width: 35px;
+}
+
+footer {
+  margin: 20px 0 -10px 0;
+  text-align: center;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+footer * {
+  font-size: inherit;
+}
+
+.emoji {
+  font-style: normal;
+}
