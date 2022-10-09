@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', () => {
   populateExample();
 });
 
-const backendAPI = 'https://ayaka-apps.shn.hk/graphviz';
+const backendAPI = 'https://ayaka-apps.shn.hk/graphviz/';
 
 const populateExample = () => {
   const dot = `digraph G {
@@ -52,7 +52,7 @@ const listenButtonClick = () => {
   formatBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       document.querySelector('.active').classList.remove('active');
-      btn.classList.add(['active']);
+      btn.classList.add('active');
     });
   });
   visualiseBtn.addEventListener('click', (e) => {
@@ -73,7 +73,7 @@ const visualise = async (src, format) => {
     return;
   }
 
-  const url = `${backendAPI}/?src=${src}&format=${format}`;
+  const url = `${backendAPI}?src=${src}&format=${format}`;
 
   const viz = new Image();
   viz.src = url;
@@ -118,7 +118,7 @@ const visualise = async (src, format) => {
 
 const showErrorMessage = () => {
   const errorMessage = document.querySelector('.error-message');
-  errorMessage.classList.add(['show']);
+  errorMessage.classList.add('show');
 
   window.setTimeout(() => {
     errorMessage.classList.remove('show');
