@@ -46,10 +46,10 @@ body {
   margin: auto;
   padding: 20px;
   background-color: var(--color-light1);
-  background-image: url(background.svg);
+  /* background-image: url(background.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center; */
   color: var(--color-black);
 }
 
