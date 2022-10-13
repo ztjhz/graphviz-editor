@@ -1,4 +1,4 @@
-# Online Graphviz Editor <img alt="icon" src="favicon.ico" width="26px" />
+<h2 align="center">Online Graphviz Editor <img alt="icon" src="favicon.ico" width="26px" /></h2>
 
 ![Preview](preview.png)
 
@@ -31,11 +31,11 @@
     <a href="https://github.com/ztjhz/graphviz-editor/issues/new/choose">Request Feature</a>
 </p>
 
-# 👋🏻 Introducing `Online Graphviz Editor`
+## 👋🏻 Introducing `Online Graphviz Editor`
 
 `Online Graphviz Editor` is a tool that allows users to generate Graphviz images online. Users can then copy the image URL and use it directly on any website **without** a need to host images on a server. The frontend is powered by [**ztjhz/graphviz-editor**](https://github.com/ztjhz/graphviz-editor) and the backend is powered by [**ayaka14732/graphviz-server**](https://github.com/ayaka14732/graphviz-server).
 
-# 🚀 Use Online Graphviz Editor
+## 🚀 Use Online Graphviz Editor
 
 Please access Online Graphviz Editor using the URL:
 
@@ -43,13 +43,13 @@ Please access Online Graphviz Editor using the URL:
 
 Liked it? Please give a ⭐️ to <b>Online Graphviz Editor</b>.
 
-### Many Thanks to all the `Stargazers` who has supported this project with stars(⭐)
+_Many Thanks to all the `Stargazers` who has supported this project with stars(⭐)_
 
 [![Stargazers repo roster for @ztjhz/graphviz-editor](https://reporoster.com/stars/ztjhz/graphviz-editor)](https://github.com/ztjhz/graphviz-editor/stargazers#gh-light-mode-only)
 
 [![Stargazers repo roster for @ztjhz/graphviz-editor](https://reporoster.com/stars/dark/ztjhz/graphviz-editor)](https://github.com/ztjhz/graphviz-editor/stargazers#gh-dark-mode-only)
 
-# 🔥 Features
+## 🔥 Features
 
 `Online Graphviz Editor` comes with a bundle of features already. You can do the followings with it,
 
@@ -57,7 +57,7 @@ Liked it? Please give a ⭐️ to <b>Online Graphviz Editor</b>.
 - 🔗 Directly generate a link to your graphviz image that can be used anywhere
 - 📱 Responsive and mobile-friendly
 
-# 🏗️ How to Set up `Online Graphviz Editor` for Development?
+## 🏗️ How to Set up `Online Graphviz Editor` for Development?
 
 1. Clone the repository
 
@@ -78,9 +78,3 @@ python -m http.server 8080
 ```
 
 That's All!!! Now open [localhost:8080](http://localhost:8080/) to see the app.
-
----
-
-<h3 align="center">
-A ⭐️ to <b>Online Graphviz Editor</b> is a must as a motivation booster.
-</h3>
