@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', () => {
   populateExample();
 });
 
-const backendAPI = 'https://ayaka-apps.shn.hk/graphviz/';
+const backendAPI = 'https://graphviz.shn.hk/';
 
 const populateExample = () => {
   const dot = `digraph G {
