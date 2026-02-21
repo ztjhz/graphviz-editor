@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', () => {
   populateExample();
 });
 
-const backendAPI = 'https://graphviz-server-production.up.railway.app/';
+const backendAPI = 'https://graphviz.shn.hk/';
 
 const populateExample = () => {
   const dot = `digraph G {
